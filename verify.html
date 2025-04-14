@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Verifikasi Akun</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        padding-top: 100px;
+      }
+      .box {
+        background: white;
+        display: inline-block;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      .success {
+        color: green;
+      }
+      .fail {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h2>Verifikasi Akun</h2>
+      <p id="result">Memverifikasi akun Anda...</p>
+    </div>
+
+    <script>
+      const resultEl = document.getElementById("result");
+
+      // Ambil token dari parameter URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get("token");
+
+      if (token) {
+        // Ganti URL ini ke ngrok/Cloudflare kamu nanti
+        const verifyAPI =
+          "https://your-ngrok-link.ngrok.io/verify_api.php?token=" + token;
+
+        fetch(verifyAPI)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.status === "success") {
+              resultEl.innerHTML = "✅ Akun Anda berhasil diverifikasi.";
+              resultEl.className = "success";
+            } else {
+              resultEl.innerHTML = "❌ Token tidak valid atau sudah digunakan.";
+              resultEl.className = "fail";
+            }
+          })
+          .catch((err) => {
+            resultEl.innerHTML = "❌ Gagal menghubungi server.";
+            resultEl.className = "fail";
+          });
+      } else {
+        resultEl.innerHTML = "❌ Token tidak ditemukan.";
+        resultEl.className = "fail";
+      }
+    </script>
+  </body>
+</html>
