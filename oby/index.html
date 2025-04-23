@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kartu Pribadi Responsif</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #1f1c2c, #928dab);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .card {
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        padding: 25px;
+        text-align: center;
+        width: 90%;
+        max-width: 350px;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: scale(1.02);
+      }
+
+      .card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid #928dab;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+
+      .card h2 {
+        margin: 10px 0 5px;
+        color: #333;
+        font-size: 1.6em;
+      }
+
+      .card p {
+        margin: 5px 0;
+        color: #555;
+        font-size: 1em;
+      }
+
+      .ig-link {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #e1306c;
+        color: white;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+      }
+
+      .ig-link:hover {
+        background-color: #c1275f;
+      }
+
+      @media screen and (max-width: 480px) {
+        .card {
+          padding: 20px;
+        }
+
+        .card h2 {
+          font-size: 1.4em;
+        }
+
+        .card p {
+          font-size: 0.95em;
+        }
+
+        .ig-link {
+          font-size: 0.95em;
+          padding: 8px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img src="/image/15515.jpg" alt="Foto Profil" />
+      <h2>Nama Lengkap</h2>
+      <p>Alamat: Radamata Belakang SMA 2</p>
+      <a href="https://instagram.com/roby.dapa" target="_blank" class="ig-link">
+        🌸 Instagram
+      </a>
+    </div>
+  </body>
+</html>
